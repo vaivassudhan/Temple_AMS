@@ -45,4 +45,7 @@ export class AddRecordComponent implements OnInit {
   close(){
     window.location.reload()
   }
+  goHome(){
+    this.router.navigate(['home'])
+  }
 }

@@ -21,7 +21,7 @@
                           <td>{{record.AddressL1}}</td>
                           <td>{{record.AddressL2}}</td>
                           <td>{{record.City}}</td>
-                          <td><button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Edit</button></td>
+                          <td><button class="btn btn-success" data-toggle="modal" (click)="getData(i)" data-target="#exampleModal">Edit</button></td>
                       </tr>
                   </tbody>
               </table>
@@ -40,13 +40,71 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ...
+          <form [formGroup]="Record" (ngSubmit)="addRecord()" role="form">
+
+            <!-- Form Name -->
+            <div class="form-group my-2">
+              <label class="col-sm-6 control-label" for="textinput">AC NO </label>
+              <div class="col-sm-6">
+                <input formControlName="ACNO" type="text" placeholder="" class="form-control">
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group my-2">
+              <label class="col-sm-6 control-label" for="textinput">Name </label>
+              <div class="col-sm-6">
+                <input formControlName="Name" type="text" placeholder="Name" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-6 control-label" for="textinput">Line 1</label>
+              <div class="col-sm-6">
+                <input formControlName="AddressL1" type="text" placeholder="Address Line 1" class="form-control">
+              </div>
+            </div>
+  
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-sm-6 control-label" for="textinput">Line 2</label>
+              <div class="col-sm-10">
+                <input formControlName="AddressL2" type="text" placeholder="Address Line 2" class="form-control">
+              </div>
+            </div>
+  
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-sm-6 control-label" for="textinput">City</label>
+              <div class="col-sm-10">
+                <input formControlName="City" type="text" placeholder="City" class="form-control">
+              </div>
+            </div>
+  
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-sm-6 control-label" for="textinput">State</label>
+              <div class="col-sm-4">
+                <input formControlName="State" placeholder="State" class="form-control">
+              </div>
+  
+              <label class="col-sm-6 control-label my-2" for="textinput">Postcode</label>
+              <div class="col-sm-4">
+                <input formControlName="pincode" type="text" placeholder="Post Code" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-6 control-label" for="textinput">Due Date</label>
+              <div class="col-sm-4">
+                <input formControlName="DueDate" type="text"  class="form-control" readonly>
+              </div>
+            </div>
+  
+        </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
