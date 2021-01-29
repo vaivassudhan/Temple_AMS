@@ -1,5 +1,5 @@
 const express = require("express");
-const recordService = require("../service/record.service");
+const recordService = require("../services/record.service");
 
 const recordRouter = express.Router();
 const path = require('path');
