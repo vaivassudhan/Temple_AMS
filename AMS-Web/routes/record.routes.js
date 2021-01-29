@@ -11,8 +11,8 @@ recordRouter.post("/add", (req, res, next) => {
 });
 
 
-recordRouter.post("/edit/", (req, res, next) => {
-    recordService.editUserById(req.params.PFNumber,req.body)
+recordRouter.post("/edit/:ACNO", (req, res, next) => {
+    recordService.editRecord(req.params.ACNO,req.body)
     .then(response => res.send(response))
     .catch(error => next(error));
 });
@@ -21,5 +21,6 @@ recordRouter.get("/allRecords", (req, res, next) => {
     .then(response => res.send(response))
     .catch(error => next(error));
 });
+
 
 module.exports = recordRouter;

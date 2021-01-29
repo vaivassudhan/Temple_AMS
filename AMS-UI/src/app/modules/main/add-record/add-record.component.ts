@@ -12,7 +12,7 @@ export class AddRecordComponent implements OnInit {
     ACNO:new FormControl(''),
     Name:new FormControl('',[Validators.required, Validators.minLength(3)]),
     AddressL1: new FormControl('',[Validators.required, Validators.minLength(3)]),
-    AddressL2: new FormControl('',[Validators.required, Validators.minLength(3)]),
+    AddressL2: new FormControl(''),
     State: new FormControl(''),
     City : new FormControl(''),
     DueDate : new FormControl(''),
@@ -43,9 +43,12 @@ export class AddRecordComponent implements OnInit {
     })
   }
   close(){
-    window.location.reload()
+    this.router.navigate(['home'])
   }
   goHome(){
     this.router.navigate(['home'])
+  }
+  onCheckChange(e){
+    this.Record.patchValue({isvip:e.target.checked})
   }
 }

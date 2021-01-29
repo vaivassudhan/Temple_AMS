@@ -55,7 +55,12 @@
               <input formControlName="pincode" type="text" placeholder="Post Code" class="form-control">
             </div>
           </div>
-          <div class="form-group">
+          <!-- <label class="col-sm-2 control-label my-2" for="textinput">VIP</label> -->
+            <div class="col-sm-4">
+            <input type="checkbox"  (change)="onCheckChange($event)">
+            <span class=" mx-2 my-2" style="color: black;">VIP</span>
+            </div>
+          <div class="form-group my-2">
             <label class="col-sm-2 control-label" for="textinput">Due Date</label>
             <div class="col-sm-4">
               <input formControlName="DueDate" type="text" placeholder="City" class="form-control" readonly>

@@ -9,6 +9,7 @@ import { FormGroup, FormControl,Validators,FormArray ,FormBuilder} from '@angula
 })
 export class ShowRecordsComponent implements OnInit {
   allRecords: any;
+  isvip:boolean=false;
   Record = new FormGroup({
     ACNO:new FormControl(''),
     Name:new FormControl('',[Validators.required, Validators.minLength(3)]),
@@ -27,11 +28,11 @@ export class ShowRecordsComponent implements OnInit {
       this.allRecords=res;
     })
   }
-  addRecord(){
+  editRecord(){
     console.log(this.Record.value)
-    this.service.addRecord(this.Record.value).subscribe(res=>{
+    this.service.editRecords(this.Record.value.ACNO,this.Record.value).subscribe(res=>{
       console.log(res)
-      // alert("Added")
+      window.location.reload()
     })
   }
   getData(i){
@@ -41,14 +42,22 @@ export class ShowRecordsComponent implements OnInit {
     this.Record.patchValue({AddressL1:this.iRecord.AddressL1})
     this.Record.patchValue({AddressL2:this.iRecord.AddressL2})
     this.Record.patchValue({State:this.iRecord.State})
+    this.Record.patchValue({City:this.iRecord.City})
     this.Record.patchValue({DueDate:this.iRecord.DueDate})
     this.Record.patchValue({pincode:this.iRecord.pincode})
+    this.Record.patchValue({isvip:this.iRecord.isvip})
+    if(this.iRecord.isvip=='true'){
+      this.isvip=true
+    }
   }
   close(){
     window.location.reload()
   }
   goHome(){
     // this.router.navigate(['home'])
+  }
+  onCheckChange(e){
+    this.Record.patchValue({isvip:e.target.checked})
   }
 
 }

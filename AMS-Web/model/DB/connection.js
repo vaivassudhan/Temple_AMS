@@ -16,7 +16,8 @@ const recordObj = {
     "City": { type: String },
     "State": {type:String},
     "pincode": {type:String},
-    "DueDate":{type:String}
+    "DueDate":{type:String},
+    "isvip":{type:String}
 };
 
 const connection = {};

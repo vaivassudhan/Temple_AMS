@@ -17,4 +17,9 @@ recordService.addRecord = (recordDetails) =>{
         throw new ApiError("Cannot add Record", 500);
     });
 }
+recordService.editRecord = (ACNO,data) => {
+    console.log("edit user service ",data)
+    return recordModel.editRecord(ACNO,data)
+    .then(response => ({message: `Record Edited successfully`}) )
+} 
 module.exports = recordService;
