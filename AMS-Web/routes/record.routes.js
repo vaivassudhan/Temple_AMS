@@ -5,7 +5,7 @@ const recordRouter = express.Router();
 const path = require('path');
 
 recordRouter.post("/add", (req, res, next) => {
-    recordService.createRecord(req.body)
+    recordService.addRecord(req.body)
     .then(response => res.send(response))
     .catch(error => next(error));
 });
@@ -17,7 +17,7 @@ recordRouter.post("/edit/", (req, res, next) => {
     .catch(error => next(error));
 });
 recordRouter.get("/all", (req, res, next) => {
-    recordService.getAllUserDetails()
+    recordService.getAllRecords()
     .then(response => res.send(response))
     .catch(error => next(error));
 });
