@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NgxPrinterModule} from 'ngx-printer';
 import {NgxPrintModule} from 'ngx-print';
+import { NgxArcTextModule } from 'ngx-arc-text';
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +13,8 @@ import {NgxPrintModule} from 'ngx-print';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxPrintModule
+    NgxPrintModule,
+    NgxArcTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

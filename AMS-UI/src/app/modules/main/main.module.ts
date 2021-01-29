@@ -5,12 +5,17 @@ import { AddRecordComponent } from './add-record/add-record.component';
 
 import {NgxPrintModule} from 'ngx-print';
 import { ShowRecordsComponent } from './show-records/show-records.component';
+import { NgxArcTextModule } from 'ngx-arc-text';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [HomePageComponent, AddRecordComponent, ShowRecordsComponent],
   imports: [
     CommonModule,
-    NgxPrintModule
+    NgxPrintModule,
+    NgxArcTextModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MainModule { }

@@ -3,3 +3,10 @@ h1
     text-align: center;
     color: #ffc041;
 }
+path {
+    fill: transparent;
+  }
+  
+  text {
+    fill: #FF9800;
+  }
