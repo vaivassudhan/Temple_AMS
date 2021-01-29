@@ -11,9 +11,9 @@ mongoose.set('useFindAndModify', false);
 const recordObj = {
     "AC.No":{ type:String },
     "Name": { type: String },
-    "Address Line1": { type: String },
-    "Address Line2": { type: String },
-    "Address Line3": { type: String },
+    "AddressL1": { type: String },
+    "AddressL2": { type: String },
+    "City": { type: String },
     "State": {type:String},
     "Pincode": {type:String},
     "DueDate":{type:String}
@@ -26,10 +26,10 @@ const recordSchema = new Schema(recordObj, { collection: "Records", timestamps: 
 
 connection.getCollection = collectionName => {
     const DB_HOST = "mongodb://localhost:27017";
-    return mongoose.connect(`${DB_HOST}/SRGP`, 
+    return mongoose.connect(`${DB_HOST}/SAMS`, 
     {useNewUrlParser: true, useUnifiedTopology: true}).then((db) => {
         switch (collectionName){
-            case COLLECTION_NAME.RECORDS: return db.model(collectionName, recordSchema);
+            case COLLECTION_NAME.Records: return db.model(collectionName, recordSchema);
 
         }
     }).catch(err => {

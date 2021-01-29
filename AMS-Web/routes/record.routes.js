@@ -16,7 +16,7 @@ recordRouter.post("/edit/", (req, res, next) => {
     .then(response => res.send(response))
     .catch(error => next(error));
 });
-recordRouter.get("/all", (req, res, next) => {
+recordRouter.get("/allRecords", (req, res, next) => {
     recordService.getAllRecords()
     .then(response => res.send(response))
     .catch(error => next(error));

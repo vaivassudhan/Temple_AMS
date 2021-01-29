@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NgxPrinterModule} from 'ngx-printer';
@@ -14,7 +14,8 @@ import { NgxArcTextModule } from 'ngx-arc-text';
     BrowserModule,
     AppRoutingModule,
     NgxPrintModule,
-    NgxArcTextModule
+    NgxArcTextModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

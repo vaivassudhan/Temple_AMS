@@ -1,13 +1,32 @@
-<div class="container">
-<div id="print-section"> 
-    <h1>Test line 1</h1>
-    <h1>Test line 2</h1>
-    <h1>Test line 3</h1>
+<div class="container pt-5">
+  <div class="row">
+      <div class="col-md-12 mx-auto pt-2" >
+          <div class="table-responsive">
+              <!-- <h1>Report</h1> -->
+              <table class="table table-bordered table-hover">
+                  <thead>
+                      <tr class="gold">
+                          <th scope="col">AC.no</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">City</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let record of allRecords ; index as i" id="{{i}}">
+                          <td>{{i+1}}</td>
+                          <td>{{record.Name}}</td>
+                          <td>{{record.City}}</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+
+          </div>
+          
   </div>
-   
+</div>
    <!--
      2)- Add the directive name in your button (ngxPrint),
      3)- Affect your ID to printSectionId
    -->
-  <button printSectionId="print-section" ngxPrint>print</button> 
-</div>
+  <!-- <button printSectionId="print-section" ngxPrint>print</button>  -->
