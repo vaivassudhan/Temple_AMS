@@ -21,6 +21,10 @@ const routes: Routes = [
     component:AddRecordComponent
   },
   {
+    path:'home',
+    component:HomePageComponent
+  },
+  {
     path:'show',
     component:ShowRecordsComponent
   }

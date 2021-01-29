@@ -10,3 +10,16 @@ color: aliceblue;
     color: black;
 
 }
+.bg-pat {
+    background-image: 
+      url("./assets/imp-images/ganesh.jpeg");
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }

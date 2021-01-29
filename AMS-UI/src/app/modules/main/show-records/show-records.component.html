@@ -8,14 +8,20 @@
                       <tr class="gold">
                           <th scope="col">AC.no</th>
                           <th scope="col">Name</th>
+                          <th scope="col">Address L1</th>
+                          <th scope="col">Address L2</th>
                           <th scope="col">City</th>
+                          <th scope="col">Edit</th>
                       </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor="let record of allRecords ; index as i" id="{{i}}">
+                      <tr *ngFor="let record of allRecords ; index as i"  id="{{i}}">
                           <td>{{i+1}}</td>
                           <td>{{record.Name}}</td>
+                          <td>{{record.AddressL1}}</td>
+                          <td>{{record.AddressL2}}</td>
                           <td>{{record.City}}</td>
+                          <td><button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Edit</button></td>
                       </tr>
                   </tbody>
               </table>
@@ -30,3 +36,22 @@
      3)- Affect your ID to printSectionId
    -->
   <!-- <button printSectionId="print-section" ngxPrint>print</button>  -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

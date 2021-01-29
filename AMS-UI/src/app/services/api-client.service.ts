@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   })
   
   export class ApiClientService {
-    host:string = "http://localhost:5000";
+    host:string = "http://192.168.1.15:5000";
     header:any;
     constructor( private http:HttpClient) {}
 
