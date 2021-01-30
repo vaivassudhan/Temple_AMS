@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   })
   
   export class ApiClientService {
-    host:string = "http://192.168.1.15:5000";
+    host:string = "http://localhost:5000";
     header:any;
     constructor( private http:HttpClient) {}
 
@@ -28,6 +28,10 @@ import { catchError } from 'rxjs/operators';
     }
     editRecords(ACNO,details):Observable<any>{
       return this.http.post<any>(`${this.host}/record/edit/${ACNO}`, details)
+      .pipe( catchError(err => this.throwError(err)) );
+    }
+    archiveRecord(ACNO):Observable<any>{
+      return this.http.get<any>(`${this.host}/record/archive/${ACNO}`)
       .pipe( catchError(err => this.throwError(err)) );
     }
     

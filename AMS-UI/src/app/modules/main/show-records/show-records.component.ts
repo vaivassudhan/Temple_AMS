@@ -60,5 +60,10 @@ export class ShowRecordsComponent implements OnInit {
   onCheckChange(e){
     this.Record.patchValue({isvip:e.target.checked})
   }
+  archive(){
+    this.service.archiveRecord(this.Record.value.ACNO).subscribe(res=>{
+      console.log(res)
+    })
+  }
 
 }

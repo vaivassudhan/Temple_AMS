@@ -21,6 +21,11 @@ recordRouter.get("/allRecords", (req, res, next) => {
     .then(response => res.send(response))
     .catch(error => next(error));
 });
+recordRouter.get("/edit/:ACNO", (req, res, next) => {
+    recordService.archiveRecord(req.params.ACNO)
+    .then(response => res.send(response))
+    .catch(error => next(error));
+});
 
 
 module.exports = recordRouter;

@@ -22,4 +22,8 @@ recordService.editRecord = (ACNO,data) => {
     return recordModel.editRecord(ACNO,data)
     .then(response => ({message: `Record Edited successfully`}) )
 } 
+recordService.archiveRecord = (ACNO) => {
+    return recordModel.archiveRecord(ACNO)
+    .then(response => ({message: `Record Edited successfully`}) )
+} 
 module.exports = recordService;

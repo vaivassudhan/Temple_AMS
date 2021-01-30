@@ -6,13 +6,6 @@
     <div class="card">
       <form [formGroup]="Record" (ngSubmit)="addRecord()" role="form">
 
-          <!-- Form Name -->
-          <div class="form-group my-2">
-            <label class="col-sm-2 control-label" for="textinput">AC NO </label>
-            <div class="col-sm-10">
-              <input formControlName="ACNO" type="text" placeholder="" class="form-control">
-            </div>
-          </div>
           <!-- Text input-->
           <div class="form-group my-2">
             <label class="col-sm-2 control-label" for="textinput">Name </label>
@@ -36,50 +29,76 @@
           </div>
 
           <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">City</label>
-            <div class="col-sm-10">
-              <input formControlName="City" type="text" placeholder="City" class="form-control">
-            </div>
-          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="col-sm-6 control-label" for="textinput">City</label>
+                  <div class="col-sm-10">
+                    <input formControlName="City" type="text" placeholder="City" class="form-control">
+                  </div>
+              </div>
 
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">State</label>
-            <div class="col-sm-4">
-              <input formControlName="State" placeholder="State" class="form-control">
-            </div>
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-6 control-label" for="textinput">State</label>
+                <div class="col-sm-10">
+                  <input formControlName="State" placeholder="State" class="form-control">
+                </div>
 
-            <label class="col-sm-2 control-label my-2" for="textinput">Postcode</label>
-            <div class="col-sm-4">
-              <input formControlName="pincode" type="text" placeholder="Post Code" class="form-control">
-            </div>
-          </div>
-          <!-- <label class="col-sm-2 control-label my-2" for="textinput">VIP</label> -->
-            <div class="col-sm-4">
-            <input type="checkbox"  (change)="onCheckChange($event)">
-            <span class=" mx-2 my-2" style="color: black;">VIP</span>
-            </div>
-          <div class="form-group my-2">
-            <label class="col-sm-2 control-label" for="textinput">Due Date</label>
-            <div class="col-sm-4">
-              <input formControlName="DueDate" type="text" placeholder="City" class="form-control" readonly>
-            </div>
-          </div>
+                <label class="col-sm-6 control-label my-2" for="textinput">Postcode</label>
+                <div class="col-sm-10">
+                  <input formControlName="pincode" type="text" placeholder="Post Code" class="form-control">
+                </div>
+              </div>
+              <!-- <label class="col-sm-2 control-label my-2" for="textinput">VIP</label> -->
+                <div class="col-sm-4">
+                <input type="checkbox"  (change)="onCheckChange($event)">
+                <span class=" mx-2 my-2" style="color: black;">VIP</span>
+                </div>
+                <div class="form-group my-2">
+                  <label class="col-sm-6 control-label" for="textinput">AC NO </label>
+                  <div class="col-sm-10">
+                    <input formControlName="ACNO" type="text" placeholder="" class="form-control">
+                  </div>
+                </div>
+              <div class="form-group my-2">
+                <label class="col-sm-6 control-label" for="textinput">Due Date</label>
+                <div class="col-sm-10">
+                  <input formControlName="DueDate" type="text" placeholder="City" class="form-control" readonly>
+                </div>
+              </div>
 
 
 
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="pull-right">
-                <button class="btn btn-primary mx-2 my-4" (click)="goHome()">Go to Home</button>
-                <button class="btn btn-secondary mx-2"  (click)="close()">Cancel</button>
-                <button type="submit" class="btn btn-primary mx-2" 
-                data-toggle="modal" data-target="#success_tic" [disabled]="Record.invalid">Add</button>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <div class="pull-right">
+                    <button class="btn btn-primary mx-2 my-4" (click)="goHome()">Go to Home</button>
+                    <button class="btn btn-secondary mx-2"  (click)="close()">Cancel</button>
+                    <button type="submit" class="btn btn-primary mx-2" 
+                    data-toggle="modal" data-target="#success_tic" [disabled]="Record.invalid">Add</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- COL MD FOR PREVIEW -->
+            <div class="col-md-8 pr-5">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="gold">PREVIEW</h2>
+                </div>
+                <div class="card-body mx-4">
+                  <h6>To :</h6>
+                  <h4>{{Record.value.Name}}</h4>
+                  <p>{{Record.value.AddressL1}}</p>
+                  <p>{{Record.value.AddressL2}}</p>
+                  <p>{{Record.value.City}}</p>
+                  <p>{{Record.value.State}}</p>
+                  <p>{{Record.value.pincode}}</p>
+                </div>
               </div>
             </div>
           </div>
-
       </form>
     </div>
   </div>
@@ -250,7 +269,7 @@
           <a class="close" href="#" (click)="close()" data-dismiss="modal" >&times;</a>
           <div class="page-body">
               <div class="head">  
-              <h3 style="margin-top:5px;">Record Added</h3>
+              <h3 style="margin-top:5px;color: #1ab394;">Record Added</h3>
               <br>
           </div>
   

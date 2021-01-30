@@ -27,4 +27,11 @@ recordModel.editRecord = (ACNO,data) => {
         },{new:true}))
         .then(response =>  response);
 }
+recordModel.archiveRecord = (ACNO) => {
+    return collection.getCollection(COLLECTION_NAME.Records)
+        .then(model => model.findOneAndUpdate({ACNO:ACNO},{$set:{
+            Expired:true}
+        },{new:true}))
+        .then(response =>  response);
+}
 module.exports = recordModel;
