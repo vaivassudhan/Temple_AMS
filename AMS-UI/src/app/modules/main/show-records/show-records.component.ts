@@ -26,7 +26,7 @@ export class ShowRecordsComponent implements OnInit {
   iRecord:any;
   ngOnInit(): void {
     this.service.getRecords().subscribe(res=>{
-      this.allRecords=res;
+      this.allRecords=res.filter(res=> res.Expired==true);
     })
   }
   editRecord(){
