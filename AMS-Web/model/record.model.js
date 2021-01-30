@@ -23,7 +23,7 @@ recordModel.editRecord = (ACNO,data) => {
             State:data.State,
             pincode:data.pincode,
             DueDate:data.DueDate,
-            isvip:true}
+            isvip:data.isvip}
         },{new:true}))
         .then(response =>  response);
 }

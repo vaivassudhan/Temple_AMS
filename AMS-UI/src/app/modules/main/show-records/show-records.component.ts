@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiClientService } from '../../../services/api-client.service';
 import { FormGroup, FormControl,Validators,FormArray ,FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-records',
@@ -21,7 +22,7 @@ export class ShowRecordsComponent implements OnInit {
     pincode: new FormControl(''),
     isvip: new FormControl(''),
   });
-  constructor(private service :ApiClientService) { }
+  constructor(private service :ApiClientService , private router:Router) { }
   iRecord:any;
   ngOnInit(): void {
     this.service.getRecords().subscribe(res=>{
@@ -45,7 +46,7 @@ export class ShowRecordsComponent implements OnInit {
     this.Record.patchValue({City:this.iRecord.City})
     this.Record.patchValue({DueDate:this.iRecord.DueDate})
     this.Record.patchValue({pincode:this.iRecord.pincode})
-    this.Record.patchValue({isvip:this.iRecord.isvip})
+    // this.Record.patchValue({isvip:this.iRecord.isvip})
     if(this.iRecord.isvip=='true'){
       this.isvip=true
     }
@@ -54,7 +55,7 @@ export class ShowRecordsComponent implements OnInit {
     window.location.reload()
   }
   goHome(){
-    // this.router.navigate(['home'])
+    this.router.navigate(['home'])
   }
   onCheckChange(e){
     this.Record.patchValue({isvip:e.target.checked})

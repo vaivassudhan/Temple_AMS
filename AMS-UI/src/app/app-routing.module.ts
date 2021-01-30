@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {HomePageComponent} from './modules/main/home-page/home-page.component'
 import { AddRecordComponent } from './modules/main/add-record/add-record.component';
 import { ShowRecordsComponent } from './modules/main/show-records/show-records.component';
+import { CountComponent } from './modules/main/count/count.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path:'home',
     component:HomePageComponent
+  },
+  {
+    path:'count',
+    component:CountComponent
   },
   {
     path:'show',

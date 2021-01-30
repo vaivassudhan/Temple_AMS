@@ -9,7 +9,7 @@ mongoose.set('useFindAndModify', false);
 
 
 const recordObj = {
-    "ACNO":{ type:String },
+    "ACNO":{ type:String,required:true },
     "Name": { type: String },
     "AddressL1": { type: String },
     "AddressL2": { type: String },

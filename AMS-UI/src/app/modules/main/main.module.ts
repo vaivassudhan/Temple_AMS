@@ -7,9 +7,10 @@ import {NgxPrintModule} from 'ngx-print';
 import { ShowRecordsComponent } from './show-records/show-records.component';
 import { NgxArcTextModule } from 'ngx-arc-text';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { CountComponent } from './count/count.component';
 
 @NgModule({
-  declarations: [HomePageComponent, AddRecordComponent, ShowRecordsComponent],
+  declarations: [HomePageComponent, AddRecordComponent, ShowRecordsComponent, CountComponent],
   imports: [
     CommonModule,
     NgxPrintModule,
