@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiClientService } from '../../../services/api-client.service';
 import { FormGroup, FormControl,Validators,FormArray ,FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
+import {NgxPrinterModule} from 'ngx-printer';
 
 @Component({
   selector: 'app-show-records',
@@ -22,11 +23,12 @@ export class ShowRecordsComponent implements OnInit {
     pincode: new FormControl(''),
     isvip: new FormControl(''),
   });
-  constructor(private service :ApiClientService , private router:Router) { }
+  constructor(private service :ApiClientService , private router:Router,
+    ) { }
   iRecord:any;
   ngOnInit(): void {
     this.service.getRecords().subscribe(res=>{
-      this.allRecords=res.filter(res=> res.Expired==true);
+      this.allRecords=res.filter(res=> res.Expired==false);
     })
   }
   editRecord(){

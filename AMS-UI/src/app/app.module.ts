@@ -15,6 +15,7 @@ import { NgxArcTextModule } from 'ngx-arc-text';
     AppRoutingModule,
     NgxPrintModule,
     NgxArcTextModule,
+    NgxPrinterModule,
     HttpClientModule
   ],
   providers: [],

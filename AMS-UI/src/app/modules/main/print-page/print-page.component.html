@@ -1,0 +1,20 @@
+<div class="container pt-5">
+<div id="print-section" class="mx-4"> 
+
+      <div class="col-md-8 mx-4 pad-down" *ngFor="let Record of records">
+        <h6>To :</h6>
+        <h4>{{Record.Name}}</h4>
+        <p>{{Record.AddressL1}}</p>
+        <p>{{Record.AddressL2}}</p>
+        <p>{{Record.City}}</p>
+        <p>{{Record.State}}</p>
+        <p>{{Record.pincode}}</p>
+    </div>
+  </div>
+   
+   <!--
+     2)- Add the directive name in your button (ngxPrint),
+     3)- Affect your ID to printSectionId
+   -->
+  <button printSectionId="print-section" [useExistingCss]="true" ngxPrint>print</button> 
+</div>

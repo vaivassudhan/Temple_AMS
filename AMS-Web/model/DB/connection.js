@@ -17,7 +17,8 @@ const recordObj = {
     "State": {type:String},
     "pincode": {type:String},
     "DueDate":{type:String},
-    "isvip":{type:String}
+    "isvip":{type:String},
+    "Expired":{type:Boolean,default:false}
 };
 
 const connection = {};

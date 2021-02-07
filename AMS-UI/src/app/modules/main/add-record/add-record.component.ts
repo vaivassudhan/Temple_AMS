@@ -19,12 +19,17 @@ export class AddRecordComponent implements OnInit {
     pincode: new FormControl(''),
     isvip: new FormControl(''),
   });
+  isVip:Boolean=false;
+  vipcount:any;
   constructor(
     private service:ApiClientService,
     private router:Router
   ) { }
 
   ngOnInit(): void {
+    this.service.getRecords().subscribe(res=>{
+      this.vipcount=res.filter(res=> res.isvip=='true').length
+    })
     var oneYearFromNow = new Date();
     oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
     oneYearFromNow.setDate(30)
@@ -50,5 +55,11 @@ export class AddRecordComponent implements OnInit {
   }
   onCheckChange(e){
     this.Record.patchValue({isvip:e.target.checked})
+    this.isVip=e.target.checked
+    this.vipcount="V-"+String(this.vipcount+1).padStart(3,'0');
+    this.Record.patchValue({ACNO:(this.vipcount)})
+    if(this.isVip==false){
+    this.Record.patchValue({ACNO:''})
+    }
   }
 }

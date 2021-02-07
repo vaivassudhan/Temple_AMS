@@ -4,6 +4,7 @@ import {HomePageComponent} from './modules/main/home-page/home-page.component'
 import { AddRecordComponent } from './modules/main/add-record/add-record.component';
 import { ShowRecordsComponent } from './modules/main/show-records/show-records.component';
 import { CountComponent } from './modules/main/count/count.component';
+import { PrintPageComponent } from './modules/main/print-page/print-page.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path:'show',
     component:ShowRecordsComponent
+  },
+  {
+    path:'print',
+    component:PrintPageComponent
   }
   
 ];
