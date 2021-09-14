@@ -26,6 +26,10 @@ import { catchError } from 'rxjs/operators';
       return this.http.get<any>(`${this.host}/record/allRecords`)
       .pipe( catchError(err => this.throwError(err)) );
     }
+    insertAll(details):Observable<any>{
+      return this.http.post<any>(`${this.host}/record/cleanRec`, details)
+        .pipe( catchError(err => this.throwError(err)) );
+    }
     editRecords(ACNO,details):Observable<any>{
       return this.http.post<any>(`${this.host}/record/edit/${ACNO}`, details)
       .pipe( catchError(err => this.throwError(err)) );

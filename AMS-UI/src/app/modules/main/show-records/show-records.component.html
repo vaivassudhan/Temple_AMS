@@ -7,21 +7,23 @@
               <table class="table table-bordered table-hover">
                   <thead>
                       <tr class="gold">
-                          <th scope="col">AC.no</th>
+                          <th scope="col">ACODE</th>
+                          <th scope="col">SCODE</th>
                           <th scope="col">Name</th>
                           <th scope="col">Address L1</th>
                           <th scope="col">Address L2</th>
-                          <th scope="col">City</th>
+                          <th scope="col">Address L3</th>
                           <th scope="col">Edit</th>
                       </tr>
                   </thead>
                   <tbody>
                       <tr *ngFor="let record of allRecords ; index as i"  id="{{i}}">
-                          <td>{{i+1}}</td>
-                          <td>{{record.Name}}</td>
+                          <td>{{record.ACODE}}</td>
+                          <td>{{record.SCODE}}</td>
+                          <td>{{record.NAME}}</td>
                           <td>{{record.AddressL1}}</td>
                           <td>{{record.AddressL2}}</td>
-                          <td>{{record.City}}</td>
+                          <td>{{record.AddressL3}}</td>
                           <td><button class="btn btn-success" data-toggle="modal" (click)="getData(i)" data-target="#exampleModal">Edit</button></td>
                       </tr>
                   </tbody>

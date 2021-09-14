@@ -13,6 +13,11 @@ recordModel.addRecord = details => {
         .then(model => model.create(details))
         .then(response =>  response);
 }
+recordModel.insertAll = details => {
+    return collection.getCollection(COLLECTION_NAME.Auxilary)
+        .then(model => model.insertMany(details))
+        .then(response =>  response);
+}
 recordModel.editRecord = (ACNO,data) => {
     return collection.getCollection(COLLECTION_NAME.Records)
         .then(model => model.findOneAndUpdate({ACNO:ACNO},{$set:{

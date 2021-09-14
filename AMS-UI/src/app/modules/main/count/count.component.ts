@@ -22,5 +22,25 @@ export class CountComponent implements OnInit {
   goHome(){
     this.router.navigate(['home'])
   }
+  logit(){
+    this.service.getRecords().subscribe(res=>{
+      for(var i=0;i<res.length;i++)
+      {
+        if(res[i].ACODE=="50"){
+          res[i]["isVIP"]=true
+        }
+        else{
+          res[i]["isVIP"]=false
+        }
+      }
+      res=res.filter(a=> a.ACODE!="30")
+      res=res.filter(a=> a.ACODE!="49")
+
+      console.log(res)
+      this.service.insertAll(res).subscribe(res=>{
+        console.log(res)
+      })
+    })
+  }
 
 }

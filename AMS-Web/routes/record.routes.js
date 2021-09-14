@@ -11,6 +11,13 @@ recordRouter.post("/add", (req, res, next) => {
 });
 
 
+recordRouter.post("/cleanRec", (req, res, next) => {
+    console.log('ggf',req.body)
+    recordService.insertRec(req.body)
+    .then(response => res.send(response))
+    .catch(error => next(error));
+});
+
 recordRouter.post("/edit/:ACNO", (req, res, next) => {
     recordService.editRecord(req.params.ACNO,req.body)
     .then(response => res.send(response))

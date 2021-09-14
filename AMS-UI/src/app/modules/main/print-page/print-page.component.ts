@@ -12,6 +12,7 @@ export class PrintPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getRecords().subscribe(res=>{
+      console.log(res)
       this.records=res;
     })
   }
