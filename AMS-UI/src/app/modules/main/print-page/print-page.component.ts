@@ -13,7 +13,7 @@ export class PrintPageComponent implements OnInit {
   ngOnInit(): void {
     this.service.getRecords().subscribe(res=>{
       console.log(res)
-      this.records=res;
+      this.records=res.slice(0,5);
     })
   }
 

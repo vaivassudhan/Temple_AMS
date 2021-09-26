@@ -14,8 +14,8 @@ export class CountComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getRecords().subscribe(res=>{
-      this.vipcount=res.filter(res=>res.isvip=='true').length
-      this.addressCount=res.filter(res=>res.isvip!='true').length
+      this.vipcount=res.filter(res=>res.isVIP=='true').length
+      this.addressCount=res.filter(res=>res.isVIP!='true').length
 
     })
   }

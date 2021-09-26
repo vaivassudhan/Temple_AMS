@@ -5,7 +5,7 @@ const { model } = require('mongoose');
 const recordModel = {};
 recordModel.getAllRecords =() =>{
     return collection.getCollection(COLLECTION_NAME.Records)
-    .then(model => model.find())
+    .then(model => model.find().sort({"ACODE":1,"SCODE":1}))
     .then(response =>  response);
 }
 recordModel.addRecord = details => {

@@ -13,8 +13,8 @@ export class AddRecordComponent implements OnInit {
     Name:new FormControl('',[Validators.required, Validators.minLength(3)]),
     AddressL1: new FormControl('',[Validators.required, Validators.minLength(3)]),
     AddressL2: new FormControl(''),
-    State: new FormControl(''),
-    City : new FormControl(''),
+    AddressL3: new FormControl(''),
+    AddressL4 : new FormControl(''),
     DueDate : new FormControl(''),
     pincode: new FormControl(''),
     isvip: new FormControl(''),
@@ -42,10 +42,10 @@ export class AddRecordComponent implements OnInit {
   }
   addRecord(){
     console.log(this.Record.value)
-    this.service.addRecord(this.Record.value).subscribe(res=>{
-      console.log(res)
-      // alert("Added")
-    })
+    // this.service.addRecord(this.Record.value).subscribe(res=>{
+    //   console.log(res)
+    //   // alert("Added")
+    // })
   }
   close(){
     this.router.navigate(['home'])

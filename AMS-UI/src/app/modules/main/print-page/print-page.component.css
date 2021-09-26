@@ -1,6 +1,16 @@
 p{
     line-height: 0.2;
 }
+.acontain{
+    border: solid;
+    border-color:red;
+    height: 650px;
+    overflow: scroll;
+}
 .pad-down{
-    padding-bottom: 5%;
+
+    padding:2%;
+}
+@media print {
+    .pagebreak { page-break-before: always; } /* page-break-after works, as well */
 }
