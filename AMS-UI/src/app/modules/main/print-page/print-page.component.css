@@ -1,10 +1,18 @@
 p{
-    line-height: 0.2;
+    line-height: 0.7;
+    font-size: 26px;
+    
+}
+/* printer setting C5 */
+h4{
+    font-size: 30px;
 }
 .acontain{
     border: solid;
     border-color:red;
     height: 650px;
+    /* padding-left: 120px; */
+    padding-top: 104px;
     overflow: scroll;
 }
 .pad-down{

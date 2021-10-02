@@ -9,15 +9,16 @@ import { FormGroup, FormControl,Validators,FormArray ,FormBuilder} from '@angula
 })
 export class AddRecordComponent implements OnInit {
   Record = new FormGroup({
-    ACNO:new FormControl(''),
-    Name:new FormControl('',[Validators.required, Validators.minLength(3)]),
+    ACODE:new FormControl(''),
+    SCODE:new FormControl(''),
+    NAME:new FormControl('',[Validators.required, Validators.minLength(3)]),
     AddressL1: new FormControl('',[Validators.required, Validators.minLength(3)]),
     AddressL2: new FormControl(''),
     AddressL3: new FormControl(''),
     AddressL4 : new FormControl(''),
-    DueDate : new FormControl(''),
+    DUEDATE : new FormControl(''),
     pincode: new FormControl(''),
-    isvip: new FormControl(''),
+    ISVIP: new FormControl(''),
   });
   isVip:Boolean=false;
   vipcount:any;
@@ -38,14 +39,14 @@ export class AddRecordComponent implements OnInit {
     const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(oneYearFromNow);
     console.log(`${da}-${mo}-${ye}`);
     const due=da+"-"+mo+"-"+ye
-    this.Record.patchValue({DueDate:due})
+    this.Record.patchValue({DUEDATE:due})
   }
   addRecord(){
     console.log(this.Record.value)
-    // this.service.addRecord(this.Record.value).subscribe(res=>{
-    //   console.log(res)
-    //   // alert("Added")
-    // })
+    this.service.addRecord(this.Record.value).subscribe(res=>{
+      console.log(res)
+      // alert("Added")
+    })
   }
   close(){
     this.router.navigate(['home'])

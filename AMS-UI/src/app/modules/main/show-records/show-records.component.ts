@@ -11,6 +11,9 @@ import {NgxPrinterModule} from 'ngx-printer';
 })
 export class ShowRecordsComponent implements OnInit {
   allRecords: any;
+  allVIPS:any;
+  showVIPS:boolean=false;
+  allNormal:any;
   isvip:boolean=false;
   Record = new FormGroup({
     ACNO:new FormControl(''),
@@ -27,11 +30,14 @@ export class ShowRecordsComponent implements OnInit {
     ) { }
   iRecord:any;
   ngOnInit(): void {
+    this.showVIPS=false;
     this.service.getRecords().subscribe(res=>{
-      this.allRecords=res;
-      this.allRecords=this.allRecords.sort((a, b) => {
-        return a.SCODE - b.SCODE;
-    });
+      this.allRecords=res.filter(a=>a.ACODE!="50");
+      this.allVIPS=res.filter(a=>a.ACODE=="50");
+      this.allNormal=this.allRecords;
+    //   this.allRecords=this.allRecords.sort((a, b) => {
+    //     return a.SCODE - b.SCODE;
+    // });
     
       console.log(res)
     })
@@ -71,6 +77,15 @@ export class ShowRecordsComponent implements OnInit {
     this.service.archiveRecord(this.Record.value.ACNO).subscribe(res=>{
       console.log(res)
     })
+  }
+  toggleVIP(){
+    this.showVIPS=!(this.showVIPS);
+    if(this.showVIPS){
+      this.allRecords=this.allVIPS;
+    }
+    else{
+      this.allRecords=this.allNormal;
+    }
   }
 
 }
