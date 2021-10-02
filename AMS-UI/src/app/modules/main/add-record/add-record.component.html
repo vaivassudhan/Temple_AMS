@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-md-12 ">
       <h3 class="gold">Address Details</h3>
+      <h4>Last entered record : {{lastRecord}}</h4>
     <div class="card">
       <form [formGroup]="Record" (ngSubmit)="addRecord()" role="form">
 
@@ -10,11 +11,11 @@
           <div class="form-group my-2" style="display: flex;">
             <div class="col-md-4">
               <label  for="textinput">ACODE </label>
-                <input formControlName="ACODE" type="text" placeholder="ACODE" class="form-control">
+                <input (change)="checkForExisiting()" formControlName="ACODE" type="text" placeholder="ACODE" class="form-control">
             </div>
             <div class="col-md-6">
               <label for="textinput">SCODE </label>
-              <input formControlName="SCODE" type="text" placeholder="SCODE" class="form-control">
+              <input (change)="checkForExisiting()" formControlName="SCODE" type="text" placeholder="SCODE" class="form-control">
           
             </div>
             
@@ -94,7 +95,8 @@
                     <button class="btn btn-primary mx-2 my-4" (click)="goHome()">Go to Home</button>
                     <button class="btn btn-secondary mx-2"  (click)="close()">Cancel</button>
                     <button type="submit" class="btn btn-primary mx-2" 
-                    data-toggle="modal" data-target="#success_tic" [disabled]="Record.invalid">Add</button>
+                    data-toggle="modal" data-target="#success_tic" [disabled]="Record.invalid || alreadyExist">Add</button>
+
                   </div>
                 </div>
               </div>
@@ -107,12 +109,12 @@
                 </div>
                 <div class="card-body mx-4">
                   <h6>To :</h6>
-                  <h4>{{Record.value.Name}}</h4>
+                  <h4>{{Record.value.NAME}}</h4>
                   <p>{{Record.value.AddressL1}}</p>
                   <p>{{Record.value.AddressL2}}</p>
-                  <p>{{Record.value.City}}</p>
-                  <p>{{Record.value.State}}</p>
-                  <p>{{Record.value.pincode}}</p>
+                  <p>{{Record.value.AddressL3}}</p>
+                  <p>{{Record.value.AddressL4}}</p>
+
                 </div>
               </div>
             </div>

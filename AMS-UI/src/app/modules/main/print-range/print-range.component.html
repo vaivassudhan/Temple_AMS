@@ -1,0 +1,74 @@
+<div class="container pt-5">
+    <button class="btn btn-secondary" (click)="goHome()">Go to home</button>
+    <form [formGroup]="Range" role="form" class=" my-4" >
+        <div style="margin-bottom: 25px;display: flex;">
+            <div class="col-md-4">
+                <label for="from">From ACODE:</label><br>
+                <input formControlName="FACODE" autocomplete="off" type="text" name="from">
+            </div>
+            <div class="col-md-4">
+                <label for="from">From SCODE:</label><br>
+                <input formControlName="FSCODE" autocomplete="off" type="text" name="from">
+            </div>
+            <button class="btn btn-info my-4" [disabled]="Range.invalid" (click)="showDet()">View Details</button>
+        </div>
+        <div style="margin-bottom: 25px;display: flex;">
+            <div class="col-md-4">
+                <label for="to">To ACODE:</label><br>
+                <input formControlName="TACODE" autocomplete="off" type="text" id="to" name="to">
+            </div>
+            <div class="col-md-4">
+                <label for="to">To SCODE:</label><br>
+                <input formControlName="TSCODE" autocomplete="off" type="text" id="to" name="to">
+            </div>
+            <button class="btn btn-success my-4" [disabled]="Range.invalid" (click)="printRec()">Print Screen</button>
+        </div>
+    </form>
+    <div class="col-md-12 mx-auto pt-2 acontain" *ngIf="showDetails && !showPrint" >
+        <div class="table-responsive">
+            <!-- <h1>Report</h1> -->
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr class="gold">
+                        <th scope="col">ACODE</th>
+                        <th scope="col">SCODE</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address L1</th>
+                        <th scope="col">Address L2</th>
+                        <th scope="col">Address L3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let record of Records ; index as i"  id="{{i}}">
+                        <td>{{record.ACODE}}</td>
+                        <td>{{record.SCODE}}</td>
+                        <td>{{record.NAME}}</td>
+                        <td>{{record.AddressL1}}</td>
+                        <td>{{record.AddressL2}}</td>
+                        <td>{{record.AddressL3}}</td>
+    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        </div>
+
+
+
+<div id="print-section" *ngIf="showPrint" class="acontain"> 
+
+    <div class="col-md-8 mx-4 pad-down pagebreak" *ngFor="let Record of Records">
+            <h4>{{Record.NAME}}</h4>
+            <p>{{Record.AddressL1}}</p>
+            <p>{{Record.AddressL2}}</p>
+            <p>{{Record.AddressL3}}</p>
+            <p>{{Record.AddressL4}}</p>
+            <br>
+            <p >Due date : {{Record.DUEDATE | date: 'dd/MM/yyyy'}}</p>
+    </div>
+    </div>
+    
+    <button *ngIf="showPrint" printSectionId="print-section" style="float: right;" class="btn btn-primary my-4" [useExistingCss]="true" ngxPrint>Print</button> 
+
+</div>

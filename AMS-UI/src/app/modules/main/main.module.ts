@@ -10,9 +10,10 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CountComponent } from './count/count.component';
 import { PrintPageComponent } from './print-page/print-page.component';
 import {NgxPrinterModule} from 'ngx-printer';
+import { PrintRangeComponent } from './print-range/print-range.component';
 
 @NgModule({
-  declarations: [HomePageComponent, AddRecordComponent, ShowRecordsComponent, CountComponent, PrintPageComponent],
+  declarations: [HomePageComponent, AddRecordComponent, ShowRecordsComponent, CountComponent, PrintPageComponent, PrintRangeComponent],
   imports: [
     CommonModule,
     NgxPrintModule,

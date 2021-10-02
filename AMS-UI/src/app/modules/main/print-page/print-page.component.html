@@ -1,19 +1,20 @@
 <div class="container pt-5">
 <div id="print-section" class="mx-4 acontain"> 
 
-      <div class="col-md-8 mx-4 pad-down pagebreak" *ngFor="let Record of records">
-        <h6>To :</h6>
+      <div class="col-md-8 mx-4 pad-down pagebreak" style="display: flex;" *ngFor="let Record of records">
+        <div class="col-md-8">
         <h4>{{Record.NAME}}</h4>
         <p>{{Record.AddressL1}}</p>
         <p>{{Record.AddressL2}}</p>
         <p>{{Record.AddressL3}}</p>
         <p>{{Record.AddressL4}}</p>
+        </div>
+        <div class="col-md-4">
+          <p>{{Record.DUEDATE | date: 'dd/MM/yyyy'}}</p>
+        </div>
+        
     </div>
   </div>
    
-   <!--
-     2)- Add the directive name in your button (ngxPrint),
-     3)- Affect your ID to printSectionId
-   -->
   <button printSectionId="print-section" [useExistingCss]="true" ngxPrint>print</button> 
 </div>

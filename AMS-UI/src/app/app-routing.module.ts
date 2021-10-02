@@ -5,7 +5,7 @@ import { AddRecordComponent } from './modules/main/add-record/add-record.compone
 import { ShowRecordsComponent } from './modules/main/show-records/show-records.component';
 import { CountComponent } from './modules/main/count/count.component';
 import { PrintPageComponent } from './modules/main/print-page/print-page.component';
-
+import { PrintRangeComponent } from './modules/main/print-range/print-range.component';
 const routes: Routes = [
   {
     path: '',
@@ -37,6 +37,10 @@ const routes: Routes = [
   {
     path:'print',
     component:PrintPageComponent
+  },
+  {
+    path:'printrange',
+    component:PrintRangeComponent
   }
   
 ];

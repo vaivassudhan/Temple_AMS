@@ -21,7 +21,10 @@ export class AddRecordComponent implements OnInit {
     ISVIP: new FormControl(''),
   });
   isVip:Boolean=false;
+  alreadyExist:boolean=false;
   vipcount:any;
+  allAddress:any;
+  lastRecord:any;
   constructor(
     private service:ApiClientService,
     private router:Router
@@ -29,11 +32,16 @@ export class AddRecordComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getRecords().subscribe(res=>{
+      this.allAddress=res;
+      this.lastRecord = this.allAddress[this.allAddress.length-1]["ACODE"] + " " + this.allAddress[this.allAddress.length-1]["SCODE"]
+      console.log(this.lastRecord)
       this.vipcount=res.filter(res=> res.isvip=='true').length
     })
+
     var oneYearFromNow = new Date();
-    oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
-    oneYearFromNow.setDate(30)
+    //oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
+    oneYearFromNow.setMonth(oneYearFromNow.getMonth()+10)
+    oneYearFromNow.setDate(1)
     const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(oneYearFromNow);
     const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(oneYearFromNow);
     const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(oneYearFromNow);
@@ -49,7 +57,9 @@ export class AddRecordComponent implements OnInit {
     })
   }
   close(){
-    this.router.navigate(['home'])
+    this.router.navigate(['add'])
+    this.Record.reset();
+    this.ngOnInit();
   }
   goHome(){
     this.router.navigate(['home'])
@@ -62,5 +72,17 @@ export class AddRecordComponent implements OnInit {
     if(this.isVip==false){
     this.Record.patchValue({ACNO:''})
     }
+  }
+  checkForExisiting(){
+    let acode=this.Record.value.ACODE;
+    let scode=this.Record.value.SCODE;
+    let foundValue = this.allAddress.filter(a=>a.ACODE==acode && a.SCODE==scode)
+    console.log(foundValue)
+    if(foundValue.length>0){
+
+      this.Record.patchValue(foundValue[0])
+      this.alreadyExist=true;
+    }
+    console.log(this.alreadyExist)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { ApiClientService } from '../../../services/api-client.service';
 
 @Component({
@@ -6,8 +6,10 @@ import { ApiClientService } from '../../../services/api-client.service';
   templateUrl: './print-page.component.html',
   styleUrls: ['./print-page.component.css']
 })
+
 export class PrintPageComponent implements OnInit {
-  records:any;
+  @Input() records:any;  
+  //records:any;
   constructor(private service :ApiClientService) { }
 
   ngOnInit(): void {
