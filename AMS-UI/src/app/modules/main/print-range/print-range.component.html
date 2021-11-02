@@ -10,7 +10,7 @@
                 <label for="from">From SCODE:</label><br>
                 <input formControlName="FSCODE" autocomplete="off" type="text" name="from">
             </div>
-            <button class="btn btn-info my-4" [disabled]="Range.invalid" (click)="showDet()">View Details</button>
+            <button class="btn btn-info my-4" [disabled]="Range.invalid" (click)="showDet()">Show Table</button>
         </div>
         <div style="margin-bottom: 25px;display: flex;">
             <div class="col-md-4">
@@ -21,7 +21,7 @@
                 <label for="to">To SCODE:</label><br>
                 <input formControlName="TSCODE" autocomplete="off" type="text" id="to" name="to">
             </div>
-            <button class="btn btn-success my-4" [disabled]="Range.invalid" (click)="printRec()">Print Screen</button>
+            <button class="btn btn-success my-4" [disabled]="Range.invalid" (click)="printRec()">Screen</button>
         </div>
     </form>
     <div class="col-md-12 mx-auto pt-2 acontain" *ngIf="showDetails && !showPrint" >
@@ -36,6 +36,7 @@
                         <th scope="col">Address L1</th>
                         <th scope="col">Address L2</th>
                         <th scope="col">Address L3</th>
+                        <th scope="col">Address L4</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +47,8 @@
                         <td>{{record.AddressL1}}</td>
                         <td>{{record.AddressL2}}</td>
                         <td>{{record.AddressL3}}</td>
+                        <td>{{record.AddressL4}}</td>
+
     
                     </tr>
                 </tbody>
@@ -55,6 +58,7 @@
         </div>
 
 
+<button *ngIf="showPrint" printSectionId="print-section" style="float: right;" class="btn btn-primary my-4" [useExistingCss]="true" ngxPrint>Print</button> 
 
 <div id="print-section" *ngIf="showPrint" class="acontain"> 
 
@@ -65,10 +69,9 @@
             <p>{{Record.AddressL3}}</p>
             <p>{{Record.AddressL4}}</p>
             <br>
-            <p >Due date : {{Record.DUEDATE | date: 'dd/MM/yyyy'}}</p>
+            <!-- <p >Due date : {{Record.DUEDATE | date: 'dd/MM/yyyy'}}</p> -->
     </div>
     </div>
     
-    <button *ngIf="showPrint" printSectionId="print-section" style="float: right;" class="btn btn-primary my-4" [useExistingCss]="true" ngxPrint>Print</button> 
 
 </div>

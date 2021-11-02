@@ -36,7 +36,15 @@ export class PrintRangeComponent implements OnInit {
     let ts=this.Range.value.TSCODE;
 
     for(var i=0;i<this.allRecords.length;i++){
-      if(this.allRecords[i]["ACODE"]>= fa && this.allRecords[i]["ACODE"]<ta
+      if(this.allRecords[i]["ACODE"]=="50"){
+        if(this.allRecords[i]["ACODE"]>= fa && this.allRecords[i]["ACODE"]<=ta
+        && this.allRecords[i]["SCODE"]>= fs && this.allRecords[i]["SCODE"]<=ts)
+        {
+        this.Records.push(this.allRecords[i]);
+        }
+      }
+      else{
+        if(this.allRecords[i]["ACODE"]>= fa && this.allRecords[i]["ACODE"]<ta
       && this.allRecords[i]["SCODE"]>= fs)
       {
        this.Records.push(this.allRecords[i]);
@@ -44,6 +52,8 @@ export class PrintRangeComponent implements OnInit {
       if(this.allRecords[i]["ACODE"]==ta && this.allRecords[i]["SCODE"]<=ts){
         this.Records.push(this.allRecords[i]);
        }
+      }
+      
     }
 
   }
