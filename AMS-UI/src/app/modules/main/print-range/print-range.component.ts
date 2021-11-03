@@ -15,9 +15,9 @@ export class PrintRangeComponent implements OnInit {
   constructor(private router:Router, private service:ApiClientService) { }
   Range = new FormGroup({
     FACODE:new FormControl('',[Validators.required, Validators.minLength(2)]),
-    FSCODE:new FormControl('',[Validators.required, Validators.minLength(2)]),
+    //FSCODE:new FormControl('',[Validators.required, Validators.minLength(2)]),
     TACODE:new FormControl('',[Validators.required, Validators.minLength(2)]),
-    TSCODE:new FormControl('',[Validators.required, Validators.minLength(2)]),
+    //TSCODE:new FormControl('',[Validators.required, Validators.minLength(2)]),
   });
   ngOnInit(): void {
     this.service.getRecords().subscribe(res=>{
@@ -30,10 +30,12 @@ export class PrintRangeComponent implements OnInit {
   }
   getDetails(){
     this.Records=[];
-    let fa=this.Range.value.FACODE;
-    let fs=this.Range.value.FSCODE;
-    let ta=this.Range.value.TACODE;
-    let ts=this.Range.value.TSCODE;
+
+
+    let fa=this.Range.value.FACODE.substring(0,2);
+    let fs=this.Range.value.FACODE.substring(2);
+    let ta=this.Range.value.TACODE.substring(0,2);
+    let ts=this.Range.value.TACODE.substring(2);
 
     for(var i=0;i<this.allRecords.length;i++){
       if(this.allRecords[i]["ACODE"]=="50"){

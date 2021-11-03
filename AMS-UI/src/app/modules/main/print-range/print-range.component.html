@@ -1,30 +1,37 @@
 <div class="container pt-5">
     <button class="btn btn-secondary" (click)="goHome()">Go to home</button>
-    <form [formGroup]="Range" role="form" class=" my-4" >
+    <form [formGroup]="Range" role="form" class=" my-4" style="margin-left: 25%;" >
         <div style="margin-bottom: 25px;display: flex;">
             <div class="col-md-4">
-                <label for="from">From ACODE:</label><br>
+                <label for="from">From CODE:</label><br>
                 <input formControlName="FACODE" autocomplete="off" type="text" name="from">
             </div>
-            <div class="col-md-4">
+            
+            <!-- <div class="col-md-4">
                 <label for="from">From SCODE:</label><br>
                 <input formControlName="FSCODE" autocomplete="off" type="text" name="from">
-            </div>
+            </div> -->
             <button class="btn btn-info my-4" [disabled]="Range.invalid" (click)="showDet()">Show Table</button>
         </div>
         <div style="margin-bottom: 25px;display: flex;">
             <div class="col-md-4">
-                <label for="to">To ACODE:</label><br>
+                <label for="to">To CODE:</label><br>
                 <input formControlName="TACODE" autocomplete="off" type="text" id="to" name="to">
             </div>
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
+                <label for="to">To CODE:</label><br>
+                <input formControlName="TACODE" autocomplete="off" type="text" id="to" name="to">
+            </div> -->
+            <!-- <div class="col-md-4">
                 <label for="to">To SCODE:</label><br>
                 <input formControlName="TSCODE" autocomplete="off" type="text" id="to" name="to">
-            </div>
+            </div> -->
             <button class="btn btn-success my-4" [disabled]="Range.invalid" (click)="printRec()">Screen</button>
         </div>
     </form>
-    <div class="col-md-12 mx-auto pt-2 acontain" *ngIf="showDetails && !showPrint" >
+    <button *ngIf="showDetails && !showPrint" printSectionId="print-section-t" style="float: right;" class="btn btn-primary my-4" [useExistingCss]="true" ngxPrint>Print</button> 
+
+    <div id="print-section-t" class="col-md-12 mx-auto pt-2 acontain" *ngIf="showDetails && !showPrint" >
         <div class="table-responsive">
             <!-- <h1>Report</h1> -->
             <table class="table table-bordered table-hover">
@@ -68,6 +75,8 @@
             <p>{{Record.AddressL2}}</p>
             <p>{{Record.AddressL3}}</p>
             <p>{{Record.AddressL4}}</p>
+            <span> {{Record.ACODE}} - {{Record.SCODE}}</span>
+
             <br>
             <!-- <p >Due date : {{Record.DUEDATE | date: 'dd/MM/yyyy'}}</p> -->
     </div>
