@@ -19,22 +19,27 @@ recordModel.insertAll = details => {
         .then(response =>  response);
 }
 recordModel.editRecord = (ACNO,data) => {
+    let acode=ACNO.substring(0,2)
+    let scode=ACNO.substring(2)
+    console.log(acode,scode)
     return collection.getCollection(COLLECTION_NAME.Records)
-        .then(model => model.findOneAndUpdate({ACNO:ACNO},{$set:{
-            Name:data.Name,
+        .then(model => model.findAndUpdate({ACODE:acode,SCODE:scode},{$set:{
+            NAME:data.Name,
             AddressL1:data.AddressL1,
             AddressL2:data.AddressL2,
-            City:data.City,
-            State:data.State,
-            pincode:data.pincode,
-            DueDate:data.DueDate,
+            AddressL3:data.AddressL3,
+            AddressL4:data.AddressL4,
+            DUEDATE:data.DueDate,
             isvip:data.isvip}
-        },{new:true}))
+        }))
         .then(response =>  response);
 }
 recordModel.archiveRecord = (ACNO) => {
+    let acode=ACNO.substring(0,2)
+    let scode=ACNO.substring(2)
+    console.log(acode,scode)
     return collection.getCollection(COLLECTION_NAME.Records)
-        .then(model => model.findOneAndUpdate({ACNO:ACNO},{$set:{
+        .then(model => model.findOneAndUpdate({ACODE:acode,SCODE:scode},{$set:{
             Expired:true}
         },{new:true}))
         .then(response =>  response);

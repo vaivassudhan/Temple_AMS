@@ -4,6 +4,7 @@ import {HomePageComponent} from './home-page/home-page.component'
 import { AddRecordComponent } from './add-record/add-record.component';
 import { PrintPageComponent } from './print-page/print-page.component';
 import {PrintRangeComponent} from './print-range/print-range.component'
+import { ReminderManagementComponent } from './reminder-management/reminder-management.component';
 const routes: Routes = [
     {
       path: 'home',
@@ -12,6 +13,10 @@ const routes: Routes = [
     {
       path:'add',
       component:AddRecordComponent
+    },
+    {
+      path:'remind',
+      component:ReminderManagementComponent
     },
     {
       path:'printrange',

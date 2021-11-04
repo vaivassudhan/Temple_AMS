@@ -1,0 +1,38 @@
+<div class="container pt-5">
+    <button class="btn btn-success" (click)="goHome()">Go to home</button>
+    <button class="btn btn-success mx-2" (click)="goBack()">Go back</button>
+
+    <div class="row">
+        <div class="col-md-12 mx-auto pt-2" style="font-size: 12px;">
+            <div class="table-responsive">
+                <!-- <h1>Report</h1> -->
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="gold">
+                            <th scope="col">ACODE</th>
+                            <th scope="col">SCODE</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">DUE DATE</th>
+                            <th scope="col">Address L3</th>
+                            <th scope="col">Address L4</th>
+  
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let record of ReminderRecords ; index as i"  id="{{i}}">
+                            <td>{{record.ACODE}}</td>
+                            <td>{{record.SCODE}}</td>
+                            <td>{{record.NAME}}</td>
+                            <td>{{record.DUEDATE | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{record.AddressL3}}</td>
+                            <td>{{record.AddressL4}}</td>
+                          
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+  
+            </div>
+        </div>
+        </div>

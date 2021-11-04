@@ -16,12 +16,13 @@ export class ShowRecordsComponent implements OnInit {
   allNormal:any;
   isvip:boolean=false;
   Record = new FormGroup({
-    ACNO:new FormControl(''),
+    ACODE:new FormControl(''),
+    SCODE:new FormControl(''),
     Name:new FormControl('',[Validators.required, Validators.minLength(3)]),
     AddressL1: new FormControl('',[Validators.required, Validators.minLength(3)]),
     AddressL2: new FormControl('',[Validators.required, Validators.minLength(3)]),
-    State: new FormControl(''),
-    City : new FormControl(''),
+    AddressL3: new FormControl(''),
+    AddressL4 : new FormControl(''),
     DueDate : new FormControl(''),
     pincode: new FormControl(''),
     isvip: new FormControl(''),
@@ -35,29 +36,27 @@ export class ShowRecordsComponent implements OnInit {
       this.allRecords=res.filter(a=>a.ACODE!="50");
       this.allVIPS=res.filter(a=>a.ACODE=="50");
       this.allNormal=this.allRecords;
-    //   this.allRecords=this.allRecords.sort((a, b) => {
-    //     return a.SCODE - b.SCODE;
-    // });
     
       console.log(res)
     })
   }
   editRecord(){
     console.log(this.Record.value)
-    this.service.editRecords(this.Record.value.ACNO,this.Record.value).subscribe(res=>{
+    this.service.editRecords(this.Record.value.ACODE+this.Record.value.SCODE,this.Record.value).subscribe(res=>{
       console.log(res)
-      window.location.reload()
+      // window.location.reload()
     })
   }
   getData(i){
     this.iRecord=this.allRecords[i]
-    this.Record.patchValue({Name:this.iRecord.Name})
-    this.Record.patchValue({ACNO:this.iRecord.ACNO})
+    this.Record.patchValue({Name:this.iRecord.NAME})
+    this.Record.patchValue({ACODE:this.iRecord.ACODE})
+    this.Record.patchValue({SCODE:this.iRecord.SCODE})
     this.Record.patchValue({AddressL1:this.iRecord.AddressL1})
     this.Record.patchValue({AddressL2:this.iRecord.AddressL2})
-    this.Record.patchValue({State:this.iRecord.State})
-    this.Record.patchValue({City:this.iRecord.City})
-    this.Record.patchValue({DueDate:this.iRecord.DueDate})
+    this.Record.patchValue({AddressL3:this.iRecord.AddressL3})
+    this.Record.patchValue({AddressL4:this.iRecord.AddressL4})
+    this.Record.patchValue({DueDate:this.iRecord.DUEDATE})
     this.Record.patchValue({pincode:this.iRecord.pincode})
     // this.Record.patchValue({isvip:this.iRecord.isvip})
     if(this.iRecord.isvip=='true'){
@@ -70,11 +69,14 @@ export class ShowRecordsComponent implements OnInit {
   goHome(){
     this.router.navigate(['home'])
   }
+  goReminders(){
+    this.router.navigate(['remind'])
+  }
   onCheckChange(e){
     this.Record.patchValue({isvip:e.target.checked})
   }
   archive(){
-    this.service.archiveRecord(this.Record.value.ACNO).subscribe(res=>{
+    this.service.archiveRecord(this.Record.value.ACODE+this.Record.value.SCODE).subscribe(res=>{
       console.log(res)
     })
   }

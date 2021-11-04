@@ -70,13 +70,23 @@
 <div id="print-section" *ngIf="showPrint" class="acontain"> 
 
     <div class="col-md-8 mx-4 pad-down pagebreak" *ngFor="let Record of Records">
-            <h4>{{Record.NAME}}</h4>
-            <p>{{Record.AddressL1}}</p>
-            <p>{{Record.AddressL2}}</p>
-            <p>{{Record.AddressL3}}</p>
-            <p>{{Record.AddressL4}}</p>
-            <span> {{Record.ACODE}} - {{Record.SCODE}}</span>
+        <div class="row">
+            <div class="col-md-8">
+                <h4>{{Record.NAME}} </h4>
+                <p>{{Record.AddressL1}} </p>
+                <p>{{Record.AddressL2}}</p>
+                <p>{{Record.AddressL3}}</p>
+                <p>{{Record.AddressL4}}</p>
+                <span> {{Record.ACODE}} - {{Record.SCODE}}</span>
+            </div>
+            <div class="col-md-4">
+                <p>DUE DATE</p>
+                <p>{{Record.DUEDATE | date:'dd/MM/yyyy'}}</p>
+            </div>
+           
 
+        </div>
+           
             <br>
             <!-- <p >Due date : {{Record.DUEDATE | date: 'dd/MM/yyyy'}}</p> -->
     </div>

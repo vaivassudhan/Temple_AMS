@@ -1,6 +1,7 @@
 <div class="container pt-5">
   <div class="row">
     <button class="btn btn-success" (click)="goHome()">Go to home</button>
+    <button class="btn btn-success mx-2"  (click)="goReminders()">Show Reminders</button>
     <div class="col-md-6">
       <input type="checkbox" (change)="toggleVIP()">
       <label for="vip">VIP</label>
@@ -62,8 +63,11 @@
             <div class="form-group my-2">
               <label class="col-sm-6 control-label" for="textinput">AC NO </label>
               <div class="col-sm-6">
-                <input formControlName="ACNO" type="text" placeholder="" class="form-control">
+                <input [value]="Record.get('ACODE').value + Record.get('SCODE').value "  type="text" placeholder="" class="form-control">
               </div>
+              <!-- <div class="col-sm-6">
+                <input formControlName="SCODE" type="text" placeholder="" class="form-control">
+              </div> -->
             </div>
             <!-- Text input-->
             <div class="form-group my-2">
@@ -73,8 +77,8 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-6 control-label" for="textinput">Line 1</label>
-              <div class="col-sm-6">
+              <label class="col-sm-12 control-label" for="textinput">Line 1</label>
+              <div class="col-sm-12">
                 <input formControlName="AddressL1" type="text" placeholder="Address Line 1" class="form-control">
               </div>
             </div>
@@ -89,23 +93,20 @@
   
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-sm-6 control-label" for="textinput">City</label>
+              <label class="col-sm-6 control-label" for="textinput">AddressL3</label>
               <div class="col-sm-10">
-                <input formControlName="City" type="text" placeholder="City" class="form-control">
+                <input formControlName="AddressL3" type="text" placeholder="AddressL3" class="form-control">
               </div>
             </div>
   
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-sm-6 control-label" for="textinput">State</label>
-              <div class="col-sm-4">
-                <input formControlName="State" placeholder="State" class="form-control">
+              <label class="col-sm-6 control-label" for="textinput">AddressL4</label>
+              <div class="col-sm-8">
+                <input formControlName="AddressL4" placeholder="AddressL4" class="form-control">
               </div>
   
-              <label class="col-sm-6 control-label my-2" for="textinput">Postcode</label>
-              <div class="col-sm-4">
-                <input formControlName="pincode" type="text" placeholder="Post Code" class="form-control">
-              </div>
+              
             </div>
             <div class="col-sm-4">
               <input type="checkbox" [checked]="isvip" (change)="onCheckChange($event)">
@@ -113,8 +114,8 @@
               </div>
             <div class="form-group my-2">
               <label class="col-sm-6 control-label" for="textinput">Due Date</label>
-              <div class="col-sm-4">
-                <input formControlName="DueDate" type="text"  class="form-control" readonly>
+              <div class="col-sm-8">
+                <input [value]="Record.get('DueDate').value | date: 'dd/MM/yyyy'" formControlName="DueDate" type="text"  class="form-control" readonly>
               </div>
             </div>
   

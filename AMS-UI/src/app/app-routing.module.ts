@@ -6,6 +6,7 @@ import { ShowRecordsComponent } from './modules/main/show-records/show-records.c
 import { CountComponent } from './modules/main/count/count.component';
 import { PrintPageComponent } from './modules/main/print-page/print-page.component';
 import { PrintRangeComponent } from './modules/main/print-range/print-range.component';
+import { ReminderManagementComponent } from './modules/main/reminder-management/reminder-management.component';
 const routes: Routes = [
   {
     path: '',
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path:'printrange',
     component:PrintRangeComponent
+  },
+  {
+    path:'remind',
+    component:ReminderManagementComponent
   }
   
 ];
