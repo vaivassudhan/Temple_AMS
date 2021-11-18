@@ -35,6 +35,18 @@ export class CountComponent implements OnInit {
       }
       res=res.filter(a=> a.ACODE!="30")
       res=res.filter(a=> a.ACODE!="49")
+      res=res.filter(a=> a.ACODE!="54")
+      res=res.filter(a=> a.ACODE!="55")
+      res=res.filter(a=> a.ACODE!="56")
+      res=res.filter(a=> a.ACODE!="57")
+      res=res.filter(a=> a.ACODE!="58")
+      res=res.filter(a=> a.ACODE!="59")
+      res=res.filter(a=> a.ACODE!="60")
+
+
+
+
+
 
       console.log(res)
       this.service.insertAll(res).subscribe(res=>{

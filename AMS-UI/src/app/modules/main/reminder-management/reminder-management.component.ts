@@ -14,15 +14,16 @@ export class ReminderManagementComponent implements OnInit {
   ngOnInit(): void {
     let curyear = new Date().getFullYear();
     let curmonth = new Date().getMonth()+1;
-    //console.log(year,month)
+    console.log(curmonth)
     
     this.service.getRecords().subscribe(res=>{
       for(let i=0;i<res.length;i++){
         let duedate = new Date(Date.parse(res[i].DUEDATE))
-        let duemonth = duedate.getMonth()+1;
+        let duemonth = (duedate.getMonth()+1)%12;
         let dueyear = duedate.getFullYear();
+        console.log(duemonth)
         if(dueyear==curyear){
-          if(duemonth==curmonth || duemonth==curmonth+1){
+          if(duemonth==curmonth || duemonth==((curmonth+1)%12)){
             this.ReminderRecords.push(res[i]);
           }
         }

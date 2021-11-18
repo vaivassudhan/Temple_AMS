@@ -15,6 +15,8 @@ export class ShowRecordsComponent implements OnInit {
   showVIPS:boolean=false;
   allNormal:any;
   isvip:boolean=false;
+  name="";
+  aa:boolean=false;
   Record = new FormGroup({
     ACODE:new FormControl(''),
     SCODE:new FormControl(''),
@@ -30,6 +32,10 @@ export class ShowRecordsComponent implements OnInit {
   constructor(private service :ApiClientService , private router:Router,
     ) { }
   iRecord:any;
+  setIndex(ii){
+    this.aa=ii;
+    console.log
+  }
   ngOnInit(): void {
     this.showVIPS=false;
     this.service.getRecords().subscribe(res=>{

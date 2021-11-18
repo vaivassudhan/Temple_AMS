@@ -12,9 +12,11 @@ import { PrintPageComponent } from './print-page/print-page.component';
 import {NgxPrinterModule} from 'ngx-printer';
 import { PrintRangeComponent } from './print-range/print-range.component';
 import { ReminderManagementComponent } from './reminder-management/reminder-management.component';
-
+import { SearchPipe } from '../../services/search.pipe';
 @NgModule({
-  declarations: [HomePageComponent, AddRecordComponent, ShowRecordsComponent, CountComponent, PrintPageComponent, PrintRangeComponent, ReminderManagementComponent],
+  declarations: [HomePageComponent, AddRecordComponent,
+    SearchPipe,
+     ShowRecordsComponent, CountComponent, PrintPageComponent, PrintRangeComponent, ReminderManagementComponent],
   imports: [
     CommonModule,
     NgxPrintModule,

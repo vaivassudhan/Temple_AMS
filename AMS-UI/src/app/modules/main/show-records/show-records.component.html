@@ -6,6 +6,8 @@
       <input type="checkbox" (change)="toggleVIP()">
       <label for="vip">VIP</label>
     </div>
+    <input type="text" [(ngModel)]="name" placeholder="Serach any name"/>
+
       <div class="col-md-12 mx-auto pt-2" style="font-size: 12px;">
           <div class="table-responsive">
               <!-- <h1>Report</h1> -->
@@ -24,11 +26,11 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor="let record of allRecords ; index as i"  id="{{i}}">
+                      <tr *ngFor="let record of allRecords | customerEmailFilter:name; index as i"  id="{{i}}">
                           <td>{{record.ACODE}}</td>
                           <td>{{record.SCODE}}</td>
-                          <td>{{record.NAME}}</td>
-                          <td>{{record.AddressL1}}</td>
+                          <td>{{record.NAME }}</td>
+                          <td>{{record.DUEDATE |  date:'dd/MM/yyyy'}}</td>
                           <td>{{record.AddressL2}}</td>
                           <td>{{record.AddressL3}}</td>
                           <td>{{record.AddressL4}}</td>
