@@ -32,13 +32,15 @@ export class PrintRangeComponent implements OnInit {
     this.Records=[];
 
 
-    let fa=this.Range.value.FACODE.substring(0,2);
-    let fs=this.Range.value.FACODE.substring(2);
-    let ta=this.Range.value.TACODE.substring(0,2);
-    let ts=this.Range.value.TACODE.substring(2);
+    let fa=(this.Range.value.FACODE.substring(0,2));
+    let fs=(this.Range.value.FACODE.substring(2));
+    let ta=(this.Range.value.TACODE.substring(0,2));
+    let ts=(this.Range.value.TACODE.substring(2));
+    console.log(fa,fs,ta,ts)
 
     for(var i=0;i<this.allRecords.length;i++){
-      if(this.allRecords[i]["ACODE"]=="50"){
+      // VIP CHECK
+      if(parseInt(this.allRecords[i]["ACODE"])==50){
         if(this.allRecords[i]["ACODE"]>= fa && this.allRecords[i]["ACODE"]<=ta
         && this.allRecords[i]["SCODE"]>= fs && this.allRecords[i]["SCODE"]<=ts)
         {
@@ -46,15 +48,24 @@ export class PrintRangeComponent implements OnInit {
         }
       }
       else{
-        if(this.allRecords[i]["ACODE"]>= fa && this.allRecords[i]["ACODE"]<ta
-      && this.allRecords[i]["SCODE"]>= fs)
-      {
-       this.Records.push(this.allRecords[i]);
+        var acode = parseInt(this.allRecords[i]["ACODE"]);
+        var scode = parseInt(this.allRecords[i]["SCODE"]);
+
+        if(acode >= parseInt(fa) && acode <=parseInt(ta) && scode >= parseInt(fs) && scode <= parseInt(ts)){
+          this.Records.push(this.allRecords[i]);
+        }
       }
-      if(this.allRecords[i]["ACODE"]==ta && this.allRecords[i]["SCODE"]<=ts){
-        this.Records.push(this.allRecords[i]);
-       }
-      }
+      // else{
+      //   if(parseInt(this.allRecords[i]["ACODE"])>= fa && parseInt(this.allRecords[i]["ACODE"])<ta
+      // && parseInt(this.allRecords[i]["SCODE"])>= fs)
+      // {
+      //   console.log("INSIDE IF", fa,fs,ta,ts)
+      //  this.Records.push(this.allRecords[i]);
+      // }
+      // if(parseInt(this.allRecords[i]["ACODE"])==ta && parseInt(this.allRecords[i]["SCODE"])<=ts){
+      //   this.Records.push(this.allRecords[i]);
+      //  }
+      // }
       
     }
 

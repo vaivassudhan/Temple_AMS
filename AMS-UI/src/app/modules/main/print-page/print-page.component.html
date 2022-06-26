@@ -2,16 +2,14 @@
 <div id="print-section" class="mx-4 acontain"> 
 
       <div class="col-md-8 mx-4 pad-down pagebreak" style="display: flex;" *ngFor="let Record of records">
-        <div class="col-md-8">
+        <div class="col-md-12">
         <h4>{{Record.NAME}}</h4>
         <p>{{Record.AddressL1}}</p>
         <p>{{Record.AddressL2}}</p>
         <p>{{Record.AddressL3}}</p>
         <p>{{Record.AddressL4}}</p>
         </div>
-        <div class="col-md-4">
-          <p>{{Record.DUEDATE | date: 'dd/MM/yyyy'}}</p>
-        </div>
+      
         
     </div>
   </div>
