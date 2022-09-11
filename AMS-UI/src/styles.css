@@ -8,8 +8,8 @@
 
 }
 .bg-pat {
-    background-image: 
-      url("./assets/img/muruga.JPG");
+    /* background-image: 
+      url("./assets/img/muruga.JPG"); */
     background-position: center;
     height: 100vh;
     background-attachment: fixed;

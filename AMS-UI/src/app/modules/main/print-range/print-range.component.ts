@@ -14,10 +14,8 @@ export class PrintRangeComponent implements OnInit {
   showPrint:boolean=false;
   constructor(private router:Router, private service:ApiClientService) { }
   Range = new FormGroup({
-    FACODE:new FormControl('',[Validators.required, Validators.minLength(2)]),
-    //FSCODE:new FormControl('',[Validators.required, Validators.minLength(2)]),
-    TACODE:new FormControl('',[Validators.required, Validators.minLength(2)]),
-    //TSCODE:new FormControl('',[Validators.required, Validators.minLength(2)]),
+    FACODE:new FormControl('',[Validators.required, Validators.minLength(4)]),
+    TACODE:new FormControl('',[Validators.required, Validators.minLength(4)]),
   });
   ngOnInit(): void {
     this.service.getRecords().subscribe(res=>{
@@ -32,40 +30,16 @@ export class PrintRangeComponent implements OnInit {
     this.Records=[];
 
 
-    let fa=(this.Range.value.FACODE.substring(0,2));
-    let fs=(this.Range.value.FACODE.substring(2));
-    let ta=(this.Range.value.TACODE.substring(0,2));
-    let ts=(this.Range.value.TACODE.substring(2));
-    console.log(fa,fs,ta,ts)
+    let fromCODE=this.Range.value.FACODE;
+    let toACODE=this.Range.value.TACODE;
 
-    for(var i=0;i<this.allRecords.length;i++){
-      // VIP CHECK
-      if(parseInt(this.allRecords[i]["ACODE"])==50){
-        if(this.allRecords[i]["ACODE"]>= fa && this.allRecords[i]["ACODE"]<=ta
-        && this.allRecords[i]["SCODE"]>= fs && this.allRecords[i]["SCODE"]<=ts)
-        {
+    for(var i=0;i<this.allRecords.length;i++)
+    {
+      var code=this.allRecords[i].ACODE+this.allRecords[i].SCODE;
+      if(code>=fromCODE && code<=toACODE)
+      {
         this.Records.push(this.allRecords[i]);
-        }
       }
-      else{
-        var acode = parseInt(this.allRecords[i]["ACODE"]);
-        var scode = parseInt(this.allRecords[i]["SCODE"]);
-
-        if(acode >= parseInt(fa) && acode <=parseInt(ta) && scode >= parseInt(fs) && scode <= parseInt(ts)){
-          this.Records.push(this.allRecords[i]);
-        }
-      }
-      // else{
-      //   if(parseInt(this.allRecords[i]["ACODE"])>= fa && parseInt(this.allRecords[i]["ACODE"])<ta
-      // && parseInt(this.allRecords[i]["SCODE"])>= fs)
-      // {
-      //   console.log("INSIDE IF", fa,fs,ta,ts)
-      //  this.Records.push(this.allRecords[i]);
-      // }
-      // if(parseInt(this.allRecords[i]["ACODE"])==ta && parseInt(this.allRecords[i]["SCODE"])<=ts){
-      //   this.Records.push(this.allRecords[i]);
-      //  }
-      // }
       
     }
 

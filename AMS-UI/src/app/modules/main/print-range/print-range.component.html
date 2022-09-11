@@ -6,11 +6,6 @@
                 <label for="from">From CODE:</label><br>
                 <input formControlName="FACODE" autocomplete="off" type="text" name="from">
             </div>
-            
-            <!-- <div class="col-md-4">
-                <label for="from">From SCODE:</label><br>
-                <input formControlName="FSCODE" autocomplete="off" type="text" name="from">
-            </div> -->
             <button class="btn btn-info my-4" [disabled]="Range.invalid" (click)="showDet()">Show Table</button>
         </div>
         <div style="margin-bottom: 25px;display: flex;">
@@ -18,14 +13,6 @@
                 <label for="to">To CODE:</label><br>
                 <input formControlName="TACODE" autocomplete="off" type="text" id="to" name="to">
             </div>
-            <!-- <div class="col-md-4">
-                <label for="to">To CODE:</label><br>
-                <input formControlName="TACODE" autocomplete="off" type="text" id="to" name="to">
-            </div> -->
-            <!-- <div class="col-md-4">
-                <label for="to">To SCODE:</label><br>
-                <input formControlName="TSCODE" autocomplete="off" type="text" id="to" name="to">
-            </div> -->
             <button class="btn btn-success my-4" [disabled]="Range.invalid" (click)="printRec()">Screen</button>
         </div>
     </form>
