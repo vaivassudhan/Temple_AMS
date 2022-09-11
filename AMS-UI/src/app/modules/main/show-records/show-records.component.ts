@@ -83,17 +83,27 @@ export class ShowRecordsComponent implements OnInit {
   }
   archive(){
     this.service.archiveRecord(this.Record.value.ACODE+this.Record.value.SCODE).subscribe(res=>{
-      console.log(res)
+      console.log(res);
+      window.location.reload();
     })
   }
   toggleVIP(){
     this.showVIPS=!(this.showVIPS);
     if(this.showVIPS){
       this.allRecords=this.allVIPS;
+      console.log(this.allRecords)
     }
     else{
       this.allRecords=this.allNormal;
     }
+  }
+
+  archiveRecord(i)
+  {
+    this.service.archiveRecord(this.allRecords[i].ACODE+this.allRecords[i].SCODE).subscribe(res=>{
+      console.log(res);
+      window.location.reload();
+    });
   }
 
 }

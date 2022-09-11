@@ -40,7 +40,7 @@ export class AddRecordComponent implements OnInit {
 
     var oneYearFromNow = new Date();
     //oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
-    oneYearFromNow.setMonth(oneYearFromNow.getMonth()+10)
+    oneYearFromNow.setMonth(oneYearFromNow.getMonth()+12)
     oneYearFromNow.setDate(1)
     const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(oneYearFromNow);
     const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(oneYearFromNow);
