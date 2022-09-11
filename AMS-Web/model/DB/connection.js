@@ -18,6 +18,7 @@ const recordObj = {
     "AddressL4": {type:String},
     "DUEDATE":{type:String},
     "isVIP":{type:String},
+    "isArchived":{type:Boolean,default:false}
 };
 const aux={
     ACODE:{ type:String },

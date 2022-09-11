@@ -23,7 +23,7 @@ recordModel.editRecord = (ACNO,data) => {
     let scode=ACNO.substring(2)
     console.log(acode,scode)
     return collection.getCollection(COLLECTION_NAME.Records)
-        .then(model => model.findAndUpdate({ACODE:acode,SCODE:scode},{$set:{
+        .then(model => model.findOneAndUpdate({ACODE:acode,SCODE:scode},{$set:{
             NAME:data.Name,
             AddressL1:data.AddressL1,
             AddressL2:data.AddressL2,
@@ -39,9 +39,7 @@ recordModel.archiveRecord = (ACNO) => {
     let scode=ACNO.substring(2)
     console.log(acode,scode)
     return collection.getCollection(COLLECTION_NAME.Records)
-        .then(model => model.findOneAndUpdate({ACODE:acode,SCODE:scode},{$set:{
-            Expired:true}
-        },{new:true}))
-        .then(response =>  response);
+        .then(model => model.findOneAndUpdate({"ACODE":acode,"SCODE":scode},{$set:{"isArchived":true}}))
+        .then(response =>  {console.log(response)});
 }
 module.exports = recordModel;

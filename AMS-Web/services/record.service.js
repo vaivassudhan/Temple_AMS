@@ -6,7 +6,9 @@ const recordService ={};
 recordService.getAllRecords=()=>{
     return recordModel.getAllRecords()
     .then(response => {
-        if(response) return response;
+        if(response){ 
+            return response.filter((record)=>record.isArchived==false);
+        };
         throw new ApiError("Cannot Get Record List", 500);
     });
 }
